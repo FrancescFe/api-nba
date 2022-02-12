@@ -9,7 +9,7 @@ class EquipoController extends AbstractController
 {
     public function listOfEquipos(){
         $equipos = $this->getDoctrine()->getManager()->getRepository(Equipos::class)
-            ->findListedEquipos();
+            ->findListOfEquipos();
 
         return new JsonResponse($equipos);
     }
