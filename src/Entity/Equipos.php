@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Equipos
  *
  * @ORM\Table(name="equipos")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EquiposRepository")
  */
 class Equipos
 {
@@ -41,6 +41,70 @@ class Equipos
      * @ORM\Column(name="division", type="string", length=9, nullable=true)
      */
     private $division;
+
+    /**
+     * @return string
+     */
+    public function getNombre(): string
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre(string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCiudad(): ?string
+    {
+        return $this->ciudad;
+    }
+
+    /**
+     * @param string|null $ciudad
+     */
+    public function setCiudad(?string $ciudad): void
+    {
+        $this->ciudad = $ciudad;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getConferencia(): ?string
+    {
+        return $this->conferencia;
+    }
+
+    /**
+     * @param string|null $conferencia
+     */
+    public function setConferencia(?string $conferencia): void
+    {
+        $this->conferencia = $conferencia;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDivision(): ?string
+    {
+        return $this->division;
+    }
+
+    /**
+     * @param string|null $division
+     */
+    public function setDivision(?string $division): void
+    {
+        $this->division = $division;
+    }
 
 
 }

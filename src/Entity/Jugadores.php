@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Jugadores
  *
  * @ORM\Table(name="jugadores", indexes={@ORM\Index(name="Nombre_equipo", columns={"nombre_equipo"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\JugadoresRepository")
  */
 class Jugadores
 {
@@ -65,6 +65,110 @@ class Jugadores
      * })
      */
     private $nombreEquipo;
+
+    /**
+     * @return int
+     */
+    public function getCodigo(): int
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string|null $nombre
+     */
+    public function setNombre(?string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getProcedencia(): ?string
+    {
+        return $this->procedencia;
+    }
+
+    /**
+     * @param string|null $procedencia
+     */
+    public function setProcedencia(?string $procedencia): void
+    {
+        $this->procedencia = $procedencia;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAltura(): ?string
+    {
+        return $this->altura;
+    }
+
+    /**
+     * @param string|null $altura
+     */
+    public function setAltura(?string $altura): void
+    {
+        $this->altura = $altura;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getPeso(): ?int
+    {
+        return $this->peso;
+    }
+
+    /**
+     * @param int|null $peso
+     */
+    public function setPeso(?int $peso): void
+    {
+        $this->peso = $peso;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPosicion(): ?string
+    {
+        return $this->posicion;
+    }
+
+    /**
+     * @param string|null $posicion
+     */
+    public function setPosicion(?string $posicion): void
+    {
+        $this->posicion = $posicion;
+    }
+
+    /**
+     * @return Equipos
+     */
+    public function getNombreEquipo(): Equipos
+    {
+        return $this->nombreEquipo;
+    }
+
+    /**
+     * @param Equipos $nombreEquipo
+     */
+    public function setNombreEquipo(Equipos $nombreEquipo): void
+    {
+        $this->nombreEquipo = $nombreEquipo;
+    }
 
 
 }

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Partidos
  *
  * @ORM\Table(name="partidos", indexes={@ORM\Index(name="equipo_local", columns={"equipo_local"}), @ORM\Index(name="equipo_visitante", columns={"equipo_visitante"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\PartidosRepository")
  */
 class Partidos
 {
@@ -61,6 +61,94 @@ class Partidos
      * })
      */
     private $equipoVisitante;
+
+    /**
+     * @return int
+     */
+    public function getCodigo(): int
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getPuntosLocal(): ?int
+    {
+        return $this->puntosLocal;
+    }
+
+    /**
+     * @param int|null $puntosLocal
+     */
+    public function setPuntosLocal(?int $puntosLocal): void
+    {
+        $this->puntosLocal = $puntosLocal;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getPuntosVisitante(): ?int
+    {
+        return $this->puntosVisitante;
+    }
+
+    /**
+     * @param int|null $puntosVisitante
+     */
+    public function setPuntosVisitante(?int $puntosVisitante): void
+    {
+        $this->puntosVisitante = $puntosVisitante;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTemporada(): ?string
+    {
+        return $this->temporada;
+    }
+
+    /**
+     * @param string|null $temporada
+     */
+    public function setTemporada(?string $temporada): void
+    {
+        $this->temporada = $temporada;
+    }
+
+    /**
+     * @return Equipos
+     */
+    public function getEquipoLocal(): Equipos
+    {
+        return $this->equipoLocal;
+    }
+
+    /**
+     * @param Equipos $equipoLocal
+     */
+    public function setEquipoLocal(Equipos $equipoLocal): void
+    {
+        $this->equipoLocal = $equipoLocal;
+    }
+
+    /**
+     * @return Equipos
+     */
+    public function getEquipoVisitante(): Equipos
+    {
+        return $this->equipoVisitante;
+    }
+
+    /**
+     * @param Equipos $equipoVisitante
+     */
+    public function setEquipoVisitante(Equipos $equipoVisitante): void
+    {
+        $this->equipoVisitante = $equipoVisitante;
+    }
 
 
 }
