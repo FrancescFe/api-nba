@@ -2,6 +2,10 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-index:
+list_teams:
   path: /equipos
-  controller: App\Controller\EquipoController::listOfEquipos
+  controller: App\Controller\EquipoController::listOfTeams
+
+list_a_team:
+  path: /equipos/{teamName}
+  controller: App\Controller\EquipoController::infoOfATeam
