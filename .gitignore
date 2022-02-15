@@ -21,3 +21,5 @@
 
 /.idea/
 /.vs/
+files/scripts/.idea/vcs.xml
+files/scripts/__pycache__/

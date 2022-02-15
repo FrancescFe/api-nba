@@ -21,4 +21,9 @@ class EquipoController extends AbstractController
 
         return new JsonResponse($teams);
     }
+
+    public function playersByTeams(){
+
+        return new JsonResponse();
+    }
 }

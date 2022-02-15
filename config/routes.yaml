@@ -2,10 +2,67 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+# a
 list_teams:
   path: /equipos
   controller: App\Controller\EquipoController::listOfTeams
 
+# b
 list_a_team:
   path: /equipos/{teamName}
   controller: App\Controller\EquipoController::infoOfATeam
+
+# c
+players_by_teams:
+  path: /equipos/jugadores
+  controller: App\Controller\EquipoController::playersByTeams
+
+# d
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# e
+list_players:
+  path: /jugadores
+  controller: App\Controller\JugadoresController::listOfPlayers
+
+# f
+list_a_player:
+  path: /jugadores/{playerName}
+  controller: App\Controller\JugadoresController::infoOfAPlayer
+
+# g
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# h
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# i
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# j
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# k
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# l
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# m
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
