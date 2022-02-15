@@ -78,3 +78,17 @@ namespace App\Entity;
 // inside src\Repository create one php class ("Entityname"Repository.php) by each entity class. At line 3 write "namespace App\Repository;"
 // in same files, inside each repository define functions you need with this dql syntax:
 
+
+
+// inside src\Controller create one php class ("Entityname"Controller.php) by each entity class and in "extends" field write AbstractController.
+
+// install berbelei/DoctrineExtensions
+// move inside our container, execute this:
+composer require berbelei/doctrineextensions
+
+// move to config/packages/doctrine.yaml
+// line after "auto_mapping:true" write this:
+dql:
+/*tab*/ string_functions:
+/*tab tab*/group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
+/*tab tab*/date_format: DoctrineExtensions\Query\Mysql\DateFormat

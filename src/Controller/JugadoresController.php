@@ -17,7 +17,7 @@ class JugadoresController extends AbstractController
     public function infoOfATeam(Request $request){
         $aPlayer = $request->get('playerName');
 
-        $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->findInfoOfATeam($aPlayer);
+        $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->findInfoOfAPlayer($aPlayer);
 
         return new JsonResponse($players);
     }

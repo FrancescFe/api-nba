@@ -14,7 +14,7 @@ list_a_team:
 
 # c
 players_by_teams:
-  path: /equipos/jugadores
+  path: /equipo/jugadores
   controller: App\Controller\EquipoController::playersByTeams
 
 # d
