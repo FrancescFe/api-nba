@@ -18,9 +18,9 @@ players_by_teams:
   controller: App\Controller\EquipoController::playersByTeams
 
 # d
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+players_by_team_name:
+  path: /equipo/jugadores/{teamName}
+  controller: App\Controller\EquipoController::playersByTeamName
 
 # e
 list_players:
@@ -29,6 +29,7 @@ list_players:
 
 # f
 list_a_player:
+  # 'blank space' is typed as '%20'
   path: /jugadores/{playerName}
   controller: App\Controller\JugadoresController::infoOfAPlayer
 

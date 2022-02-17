@@ -14,11 +14,16 @@ class JugadoresController extends AbstractController
         return new JsonResponse($players);
     }
 
-    public function infoOfATeam(Request $request){
+    public function infoOfAPlayer(Request $request){
         $aPlayer = $request->get('playerName');
 
         $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->findInfoOfAPlayer($aPlayer);
 
         return new JsonResponse($players);
+    }
+
+    # g
+    public function senteceG(){
+
     }
 }
