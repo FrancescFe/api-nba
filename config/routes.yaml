@@ -15,12 +15,12 @@ list_a_team:
 # c
 players_by_teams:
   path: /equipo/jugadores
-  controller: App\Controller\EquipoController::playersByTeams
+  controller: App\Controller\JugadoresController::playersByTeams
 
 # d
 players_by_team_name:
   path: /equipo/jugadores/{teamName}
-  controller: App\Controller\EquipoController::playersByTeamName
+  controller: App\Controller\JugadoresController::playersByTeamName
 
 # e
 list_players:

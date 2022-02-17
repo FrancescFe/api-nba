@@ -9,54 +9,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class EquipoController extends AbstractController
 {
+    // A
     public function listOfTeams(){
         $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)->findListOfTeams();
 
         return new JsonResponse($teams);
     }
 
+    // B
     public function infoOfATeam(Request $request){
-        $aTeam = $request->get('teamName');
+        $inputTeam = $request->get('teamName');
 
-        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)->findInfoOfATeam($aTeam);
-
-        return new JsonResponse($teams);
-    }
-
-    public function playersByTeams(){
-        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)->findAll();
-        $arrayTeams = [];
-
-        foreach ($teams as $aTeam){
-            $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->
-                        findBy(["nombreEquipo" => $aTeam]);
-            $arrayPlayers = array();
-
-            foreach ($players as $player){
-                array_push($arrayPlayers, $player->getNombre());
-            }
-            $arrayTeams[$aTeam->getNombre()] = $arrayPlayers;
-        }
-        return new JsonResponse($arrayTeams);
-    }
-
-    public function playersByTeamName(Request $request){
-        $aTeam = $request->get('teamName');
-
-        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)->findOneBy(["nombre" => $aTeam]);
-        /*$arrayTeams = [];
-
-        foreach ($teams as $aTeam){
-            $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->
-            findBy(["nombreEquipo" => $aTeam]);
-            $arrayPlayers = array();
-
-            foreach ($players as $player){
-                array_push($arrayPlayers, $player->getNombre());
-            }
-            $arrayTeams[$aTeam->getNombre()] = $arrayPlayers;
-        }
-        return new JsonResponse($arrayTeams);*/
+        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)->findInfoOfATeam($inputTeam);
 
         return new JsonResponse($teams);
     }

@@ -152,3 +152,48 @@ namespace App\Repository;
 ```
 namespace App\Controller;
 ```
+27) Now we can create the queries we need
+
+## Practical Cases
+At last, we are going to solve some practical cases of custom queries.
+These practical cases are collected in ```QuestionsProjectApiNba.pdf```.
+You can see my approach to solution in ```src\Controller``` & ```src\Repository```.
+
+### A) for each team, list all information stored
+![](https://i.imgur.com/Jwd9GV0.png)
+
+### B) given a team name, list all info on it
+![](https://i.imgur.com/nMwYLKm.png)
+
+### C) for each team, list all its players
+![](https://i.imgur.com/Wna5MSv.png)
+
+### D) given a team name, list all its players
+![](https://i.imgur.com/dfnGGkB.png)
+
+### E) for each player, list all information stored
+![](https://i.imgur.com/aHGDYmG.png)
+
+### F) given a player name, list all info on it
+![](https://i.imgur.com/FkhFi4H.png)
+
+### G)
+![]()
+
+### H)
+![]()
+
+### I)
+![]()
+
+### J)
+![]()
+
+### K)
+![]()
+
+### L)
+![]()
+
+### M)
+![]()

@@ -5,6 +5,7 @@ use \Doctrine\ORM\EntityRepository;
 
 class EquiposRepository extends EntityRepository
 {
+    // A
     public function findListOfTeams(){
         $dql = "SELECT e FROM App:Equipos e";
         $query = $this->getEntityManager()->createQuery($dql);
@@ -12,6 +13,7 @@ class EquiposRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
+    // B
     public function findInfoOfATeam($teamName){
         $dql = "SELECT e FROM App:Equipos e WHERE e.nombre = :teamName";
         $query = $this->getEntityManager()->createQuery($dql);
@@ -20,6 +22,6 @@ class EquiposRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
-    
+
 
 }
