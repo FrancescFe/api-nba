@@ -174,10 +174,10 @@ You can see my approach to solution in ```src\Controller``` & ```src\Repository`
 ![](https://i.imgur.com/z9ix1l2.png)
 
 ### H) given a player name, show player stats by season
-![]()
+![](https://i.imgur.com/flvaCLM.png)
 
 ### I) given a player name, show average player stats career
-![]()
+![](https://i.imgur.com/LZ84qqI.png)
 
 ### J) given a team name, show home matches' result
 ![]()

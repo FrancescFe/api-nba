@@ -15,12 +15,6 @@ class EstadisticasRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
-    // I
-    public function findAverageStatsOfAPlayer(Jugadores $playerName){
-        $dql = "SELECT e FROM App:Estadisticas e WHERE e.jugador = :playerName";
-        $query = $this->getEntityManager()->createQuery($dql);
-        $query->setParameter('playerName', $playerName);
+    // I: we reuse previous method findStatsOfAPlayer()
 
-        return $query->getArrayResult();
-    }
 }
