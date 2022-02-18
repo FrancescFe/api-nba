@@ -3,7 +3,7 @@
 namespace App\Controller;
 use App\Entity\Estadisticas;
 use App\Entity\Jugadores;
-use \Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -35,32 +35,32 @@ class EstadisticasController extends AbstractController
         $player = $this->getDoctrine()->getManager()->getRepository(Estadisticas::class)
             ->findStatsOfAPlayer($players);
 
-        $averagePointsByMatch = 0;
-        $averageAssistsByMatch = 0;
-        $averageBlocksByMatch = 0;
-        $averageReboundsByMatch = 0;
-        $iterForEach=0;
+        $averagePoints = 0;
+        $averageAssists = 0;
+        $averageBlocks = 0;
+        $averageRebounds = 0;
+        $count=0;
 
         foreach ($player as $stat){
             array_shift($stat);
             array_pop($stat);
-            $averagePointsByMatch += array_shift($stat);
-            $averageAssistsByMatch += array_shift($stat);
-            $averageBlocksByMatch += array_shift($stat);
-            $averageReboundsByMatch += array_shift($stat);
-            $iterForEach++;
+            $averagePoints += array_shift($stat);
+            $averageAssists += array_shift($stat);
+            $averageBlocks += array_shift($stat);
+            $averageRebounds += array_shift($stat);
+            $count++;
         }
 
-        $averagePointsByMatch = "averagePointsByMatch: " . round($averagePointsByMatch/$iterForEach,2);
-        $averageAssistsByMatch = "averageAssistsByMatch: " . round($averageAssistsByMatch/$iterForEach, 2);
-        $averageBlocksByMatch = "averageBlocksByMatch: " . round($averageBlocksByMatch/$iterForEach, 2);
-        $averageReboundsByMatch = "averageReboundsByMatch: " . round($averageReboundsByMatch/$iterForEach, 2);
+        $averagePoints = "averagePointsByMatch: " . round($averagePoints/$count,2);
+        $averageAssists = "averageAssistsByMatch: " . round($averageAssists/$count, 2);
+        $averageBlocks = "averageBlocksByMatch: " . round($averageBlocks/$count, 2);
+        $averageRebounds = "averageReboundsByMatch: " . round($averageRebounds/$count, 2);
 
         $averageStats = [];
-        array_push($averageStats, $averagePointsByMatch, $averageAssistsByMatch,
-            $averageBlocksByMatch, $averageReboundsByMatch);
+        array_push($averageStats, $averagePoints, $averageAssists,
+            $averageBlocks, $averageRebounds);
 
-        $arrayPlayer[$players->getNombre()][]=$averageStats;
+        $arrayPlayer[$players->getNombre()]=$averageStats;
 
         return new JsonResponse($arrayPlayer);
     }

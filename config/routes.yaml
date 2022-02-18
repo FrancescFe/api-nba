@@ -49,21 +49,21 @@ average_stats_of_a_player:
   controller: App\Controller\EstadisticasController::averageStatsOfAPlayer
 
 # j
-#index:
-#    path: /partidos/resultados/local/{teamName}
-#    controller: App\Controller\DefaultController::index
+home_results_of_a_team:
+  path: /partidos/resultados/local/{teamName}
+  controller: App\Controller\PartidosController::homeResultsOfATeam
 
 # k
-#index:
-#    path: /partidos/resultados/visitante/{teamName}
-#    controller: App\Controller\DefaultController::index
+away_results_of_a_team:
+  path: /partidos/resultados/visitante/{teamName}
+  controller: App\Controller\PartidosController::awayResultsOfATeam
 
 # l
-#index:
-#    path: /partidos/resultados/media/local/{teamName}
-#    controller: App\Controller\DefaultController::index
+average_points_recived_home_of_a_team:
+  path: /partidos/resultados/media/local/{teamName}
+  controller: App\Controller\PartidosController::averageHomePointReceivedOfATeam
 
 # m
-#index:
-#    path: /partidos/resultados/media/visitante/{teamName}
-#    controller: App\Controller\DefaultController::index
+average_points_recived_away_of_a_team:
+  path: /partidos/resultados/media/visitante/{teamName}
+  controller: App\Controller\PartidosController::averageAwayPointReceivedOfATeam

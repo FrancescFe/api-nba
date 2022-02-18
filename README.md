@@ -177,7 +177,7 @@ You can see my approach to solution in ```src\Controller``` & ```src\Repository`
 ![](https://i.imgur.com/flvaCLM.png)
 
 ### I) given a player name, show average player stats career
-![](https://i.imgur.com/LZ84qqI.png)
+![](https://i.imgur.com/pqZ2hOq.png)
 
 ### J) given a team name, show home matches' result
 ![]()
