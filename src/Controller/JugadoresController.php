@@ -47,7 +47,11 @@ class JugadoresController extends AbstractController
     }
 
     // G
-    public function senteceG(){
+    public function heightWeightPositionOfAPlayer(Request $request){
+        $aPlayer = $request->get('playerName');
+        $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->
+                    findHeightWeightPositionOfAPlayer($aPlayer);
 
+        return new JsonResponse($players);
     }
 }

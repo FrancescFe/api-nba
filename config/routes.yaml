@@ -34,36 +34,36 @@ list_a_player:
   controller: App\Controller\JugadoresController::infoOfAPlayer
 
 # g
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+height_weight_position_of_a_player:
+  path: /jugador/fisico/{playerName}
+  controller: App\Controller\JugadoresController::heightWeightPositionOfAPlayer
 
 # h
-#index:
-#    path: /
+stats_of_a_player:
+  path: /estadisticas/jugador/{playerName}
 #    controller: App\Controller\DefaultController::index
 
 # i
 #index:
-#    path: /
+#    path: /estadisticas/jugador/{playerName}/avg
 #    controller: App\Controller\DefaultController::index
 
 # j
 #index:
-#    path: /
+#    path: /partidos/resultados/local/{teamName}
 #    controller: App\Controller\DefaultController::index
 
 # k
 #index:
-#    path: /
+#    path: /partidos/resultados/visitante/{teamName}
 #    controller: App\Controller\DefaultController::index
 
 # l
 #index:
-#    path: /
+#    path: /partidos/resultados/media/local/{teamName}
 #    controller: App\Controller\DefaultController::index
 
 # m
 #index:
-#    path: /
+#    path: /partidos/resultados/media/visitante/{teamName}
 #    controller: App\Controller\DefaultController::index
