@@ -170,10 +170,10 @@ You can see my approach to solution in ```src\Controller``` & ```src\Repository`
 ### F) given a player name, list all info on it
 ![](https://i.imgur.com/FkhFi4H.png)
 
-### G)
-![]()
+### G) given a player name, list height(cm), weight(kg) & position
+![](https://i.imgur.com/z9ix1l2.png)
 
-### H)
+### H) given a player name, show player stats
 ![]()
 
 ### I)

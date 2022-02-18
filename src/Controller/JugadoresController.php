@@ -48,10 +48,22 @@ class JugadoresController extends AbstractController
 
     // G
     public function heightWeightPositionOfAPlayer(Request $request){
-        $aPlayer = $request->get('playerName');
-        $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->
-                    findHeightWeightPositionOfAPlayer($aPlayer);
+        $inputPlayer = $request->get('playerName');
+        $player = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)->
+                    findOneBy(["nombre"=>$inputPlayer]);
+        $arrayStats = [];
 
-        return new JsonResponse($players);
+        $height = explode("-", $player->getAltura());
+        $player->setAltura((($height[0]*12)+$height[1])*2.54);
+        $weight = $player->getPeso();
+        $player->setPeso($weight*0.453592);
+
+        $arrayStats["height(cm)"]=$player->getAltura();
+        $arrayStats["weight(kg)"]=$player->getPeso();
+        $arrayStats["fieldPosition"]=$player->getPosicion();
+
+        $arrayPlayerStats[$player->getNombre()]=$arrayStats;
+
+        return new JsonResponse($arrayPlayerStats);
     }
 }

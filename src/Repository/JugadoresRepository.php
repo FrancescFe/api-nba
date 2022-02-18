@@ -6,6 +6,8 @@ use Doctrine\ORM\EntityRepository;
 
 class JugadoresRepository extends EntityRepository
 {
+    // C: we just work in JugadoresController
+
     // D
     public function findPlayersByTeamName(Equipos $teamName){
         $dql = "SELECT j FROM App:Jugadores j WHERE j.nombreEquipo = :teamName";
@@ -32,12 +34,6 @@ class JugadoresRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
-    // G
-    public function findHeightWeightPositionOfAPlayer($playerName){
-        $dql = "SELECT j.altura, j.peso, j.posicion FROM App:Jugadores j WHERE j.nombre = :playerName";
-        $query = $this->getEntityManager()->createQuery($dql);
-        $query->setParameter('playerName', $playerName);
+    // G: we just work in JugadoresController
 
-        return $query->getArrayResult();
-    }
 }
