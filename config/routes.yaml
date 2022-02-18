@@ -41,12 +41,12 @@ height_weight_position_of_a_player:
 # h
 stats_of_a_player:
   path: /estadisticas/jugador/{playerName}
-#    controller: App\Controller\DefaultController::index
+  controller: App\Controller\EstadisticasController::statsOfAPlayer
 
 # i
-#index:
-#    path: /estadisticas/jugador/{playerName}/avg
-#    controller: App\Controller\DefaultController::index
+average_stats_of_a_player:
+  path: /estadisticas/jugador/{playerName}/avg
+  controller: App\Controller\EstadisticasController::averageStatsOfAPlayer
 
 # j
 #index:

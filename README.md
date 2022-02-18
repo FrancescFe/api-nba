@@ -173,20 +173,20 @@ You can see my approach to solution in ```src\Controller``` & ```src\Repository`
 ### G) given a player name, list height(cm), weight(kg) & position
 ![](https://i.imgur.com/z9ix1l2.png)
 
-### H) given a player name, show player stats
+### H) given a player name, show player stats by season
 ![]()
 
-### I)
+### I) given a player name, show average player stats career
 ![]()
 
-### J)
+### J) given a team name, show home matches' result
 ![]()
 
-### K)
+### K) given a team name, show away matches' result
 ![]()
 
-### L)
+### L) given a team name, show average points received as home
 ![]()
 
-### M)
+### M) given a team name, show average points received as away
 ![]()
