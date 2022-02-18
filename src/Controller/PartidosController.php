@@ -13,8 +13,16 @@ class PartidosController extends AbstractController
         $inputTeam = $request->get('teamName');
         $teamHome = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
             ->findOneBy(["equipoLocal" => $inputTeam]);
+        $matchesTeam = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
+            ->findHomeResultsOfATeam($teamHome);
 
-        return new JsonResponse($teamHome);
+        foreach ($matchesTeam as $matchesStats){
+            $season = $matchesStats["temporada"];
+            $arrayMatches[$matchesTeam->getEquipoLocal()][]=$matchesTeam;
+        }
+
+
+        return new JsonResponse($arrayMatches);
     }
 
     // K
