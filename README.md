@@ -1,12 +1,12 @@
-#### ABSTRACT 
+#### 📝ABSTRACT 📝
 This README is the documentation of an API of nba stats.
 Original DB is stored in csv files.
 We will use a Docker container with doctrine to convert data to ORM.
-We will configure DB to operate with MVC (although we don't use a View, we will use Symfony as endpoint with Json format).
+We will configure DB to operate with MVC (although instead of a View, we will use Symfony as endpoint with Json format).
 
-# API-NBA SETTING
+# 🏀 API-NBA SETTING 🏀
 
-## Building our work environment
+## 🐳 Building our work environment 🐳
 
 To begin with, we have to use docker to build our mysql connection & api.
 
@@ -52,12 +52,11 @@ rm -r api-nba/
 ```
 apinba.local:8082
 ```
+If we get ⬇️ this screen ⬇️, we are ready to next step!! 🎊🎊
 
 ![](https://i.imgur.com/68E1tdy.png)
 
-We are ready to next step!!
-
-## DB: from CSV to ORM
+## 🔋 DB: from CSV to ORM 🔋
 
 Now that we have our server connection ready we are going to prepare our DB settings.
 
@@ -87,12 +86,11 @@ show tables;
 
 12) go to MySQL workbench and create new DB config (this is just to see info of tables)
 ```
-ip 127.0.0.1 
-port 33006
+ip 127.0.0.1  port 33006
 ```
 
 13) write the scripts to transfer csv info to our mysql DB (I used pycharm)
-> You can check my code in folder: ```\files\scripts\```
+> 🔎 You can check my code in folder: ```\files\scripts\```
 
 14) go to docker again 
 ```
@@ -113,9 +111,9 @@ php bin/console doctrine:mapping:convert annotation src/Entity --from-database
 namespace App\Entity;
 ```
 17) in same files, delete ```"\"``` from ```@var``` which have them
-18) generate setters & getters and delete ID setters
+18) generate setters & getters and 🆔delete ID setters 🆔
 
-## Installing some Doctrine extensions
+## 💾 Installing some Doctrine extensions 💾
 
 Our Doctrine image only contains basic functions, so we are going to custom our Doctrine adding functions ```GroupConcat``` & ```DateFormat```
 
@@ -134,7 +132,7 @@ dql:
         date_format: DoctrineExtensions\Query\Mysql\DateFormat
 ```
 
-## Accessing Data
+## 💻 Accessing Data 💻
 Finally, we are ready to access data and show it at an endpoint with Json format using Symfony.
 22) inside src\Repository create one php class ```yourEntityNameRepository.php``` by each entity class. At line 3 write (if IDE don't auto write it) 
 ```
@@ -145,12 +143,13 @@ namespace App\Repository;
 ```
 namespace App\Controller;
 ```
-25) Now we can create the queries we need
+25) 🏆🥇Now we can create the queries we need 🥇🏆
 
-## Practical Cases
+## ✏️ Practical Cases ✏️
 At last, we are going to solve some practical cases of custom queries.
-These practical cases are collected in ```QuestionsProjectApiNba.pdf```.
-You can see my approach to solution in ```src\Controller``` & ```src\Repository```.
+> 💡 These practical cases are collected in ```QuestionsProjectApiNba.pdf```.
+
+> 🔎 You can see my approach to solution in ```src\Controller``` & ```src\Repository```.
 
 ### A) for each team, list all information stored
 ![](https://i.imgur.com/Jwd9GV0.png)
@@ -190,3 +189,5 @@ You can see my approach to solution in ```src\Controller``` & ```src\Repository`
 
 ### M) given a team name, show average points received as away
 ![]()
+
+🎉🏆 That's all folks! 🏆🎉
