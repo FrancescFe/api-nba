@@ -50,7 +50,7 @@ average_stats_of_a_player:
 
 # j
 home_results_of_a_team:
-  path: /partidos/resultados/local/{teamName}
+  path: /partidos/resultados/local/{homeTeamName}
   controller: App\Controller\PartidosController::homeResultsOfATeam
 
 # k

@@ -17,6 +17,8 @@ class EstadisticasController extends AbstractController
         $player = $this->getDoctrine()->getManager()->getRepository(Estadisticas::class)
             ->findStatsOfAPlayer($players);
 
+        $arrayPlayer = [];
+
         foreach ($player as $stat){
             $season = $stat["temporada"];
             array_shift($stat);
@@ -39,7 +41,7 @@ class EstadisticasController extends AbstractController
         $averageAssists = 0;
         $averageBlocks = 0;
         $averageRebounds = 0;
-        $count=0;
+        $count = 0;
 
         foreach ($player as $stat){
             array_shift($stat);
@@ -51,7 +53,7 @@ class EstadisticasController extends AbstractController
             $count++;
         }
 
-        $averagePoints = "averagePointsByMatch: " . round($averagePoints/$count,2);
+        $averagePoints = "averagePointsByMatch: " . round($averagePoints/$count, 2);
         $averageAssists = "averageAssistsByMatch: " . round($averageAssists/$count, 2);
         $averageBlocks = "averageBlocksByMatch: " . round($averageBlocks/$count, 2);
         $averageRebounds = "averageReboundsByMatch: " . round($averageRebounds/$count, 2);

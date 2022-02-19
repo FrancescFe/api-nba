@@ -89,7 +89,7 @@ show tables;
 ip 127.0.0.1  port 33006
 ```
 
-13) write the scripts to transfer csv info to our mysql DB (I used pycharm)
+13) write the scripts to transfer csv info to our mysql DB (I used 🐍 pycharm 🐍)
 > 🔎 You can check my code in folder: ```\files\scripts\```
 
 14) go to docker again 
