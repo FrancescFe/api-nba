@@ -8,13 +8,37 @@ class EstadisticasRepository extends EntityRepository
 {
     // H
     public function findStatsOfAPlayer(Jugadores $playerName){
-        $dql = "SELECT e FROM App:Estadisticas e WHERE e.jugador = :playerName";
+        // Option 1 (discarded)
+        /*$dql = "SELECT e FROM App:Estadisticas e WHERE e.jugador = :playerName";
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('playerName', $playerName);
+
+        return $query->getArrayResult();*/
+
+        // Option 2
+        $dql = "SELECT e.puntosPorPartido,
+                e.asistenciasPorPartido,
+                e.taponesPorPartido,
+                e.rebotesPorPartido
+                FROM App:Estadisticas e
+                WHERE e.jugador = :idPlayer";
+        $query = $this->getEntityManager()->createQuery($dql);
+        $query->setParameter('idPlayer', $playerName->getCodigo());
 
         return $query->getArrayResult();
     }
 
-    // I: we reuse previous method findStatsOfAPlayer()
+    // I: in option 1 (discarded) I reused previous method findStatsOfAPlayer()
+    public function findAverageStatsOfAPlayer(Jugadores $playerName){
+        $dql = "SELECT round(avg(e.puntosPorPartido), 2) AS averagePoints,
+                round(avg(e.asistenciasPorPartido), 2) AS averageAssists,
+                round(avg(e.taponesPorPartido), 2) AS averageBlocks,
+                round(avg(e.rebotesPorPartido), 2) AS averageRebounds
+                FROM App:Estadisticas e
+                WHERE e.jugador = :idPlayer";
+        $query = $this->getEntityManager()->createQuery($dql);
+        $query->setParameter('idPlayer', $playerName->getCodigo());
 
+        return $query->getArrayResult();
+    }
 }

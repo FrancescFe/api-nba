@@ -13,6 +13,7 @@ doctrine:
             string_functions:
                 group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
                 date_format: DoctrineExtensions\Query\Mysql\DateFormat
+                round: DoctrineExtensions\Query\Mysql\Round
         mappings:
             App:
                 is_bundle: false

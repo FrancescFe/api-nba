@@ -14,19 +14,26 @@ class EstadisticasController extends AbstractController
         $inputPlayer = $request->get('playerName');
         $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)
             ->findOneBy(["nombre" => $inputPlayer]);
-        $player = $this->getDoctrine()->getManager()->getRepository(Estadisticas::class)
+        $playerStats = $this->getDoctrine()->getManager()->getRepository(Estadisticas::class)
             ->findStatsOfAPlayer($players);
 
-        $arrayPlayer = [];
 
-        foreach ($player as $stat){
+
+        // Option 1 (discarded)
+        /*
+        $arrayPlayer = [];
+        foreach ($playerStats as $stat){
             $season = $stat["temporada"];
             array_shift($stat);
             array_pop($stat);
             $arrayPlayer[$players->getNombre()]["Season: " . $season]=$stat;
         }
+        return new JsonResponse($arrayPlayer);*/
 
-        return new JsonResponse($arrayPlayer);
+        // Option 2
+        $statsBySeason[$players->getNombre()] = $playerStats;
+
+        return new JsonResponse($statsBySeason);
     }
 
     // I
@@ -34,16 +41,18 @@ class EstadisticasController extends AbstractController
         $inputPlayer = $request->get('playerName');
         $players = $this->getDoctrine()->getManager()->getRepository(Jugadores::class)
             ->findOneBy(["nombre" => $inputPlayer]);
-        $player = $this->getDoctrine()->getManager()->getRepository(Estadisticas::class)
-            ->findStatsOfAPlayer($players);
+        $playerStats = $this->getDoctrine()->getManager()->getRepository(Estadisticas::class)
+            ->findAverageStatsOfAPlayer($players);
 
+        // Option 1: discarded
+        /*
         $averagePoints = 0;
         $averageAssists = 0;
         $averageBlocks = 0;
         $averageRebounds = 0;
         $count = 0;
 
-        foreach ($player as $stat){
+        foreach ($playerStats as $stat){
             array_shift($stat);
             array_pop($stat);
             $averagePoints += array_shift($stat);
@@ -64,6 +73,10 @@ class EstadisticasController extends AbstractController
 
         $arrayPlayer[$players->getNombre()]=$averageStats;
 
-        return new JsonResponse($arrayPlayer);
+        return new JsonResponse($arrayPlayer);*/
+
+        // Option 2
+
+        return new JsonResponse($playerStats);
     }
 }

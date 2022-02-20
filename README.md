@@ -130,6 +130,7 @@ dql:
     string_functions:
         group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
         date_format: DoctrineExtensions\Query\Mysql\DateFormat
+        round: DoctrineExtensions\Query\Mysql\Round
 ```
 
 ## 💻 Accessing Data 💻
@@ -173,10 +174,10 @@ At last, we are going to solve some practical cases of custom queries.
 ![](https://i.imgur.com/z9ix1l2.png)
 
 ### H) given a player name, show player stats by season
-![](https://i.imgur.com/flvaCLM.png)
+![](https://i.imgur.com/Qy0I1Ny.png)
 
 ### I) given a player name, show average player stats career
-![](https://i.imgur.com/pqZ2hOq.png)
+![](https://i.imgur.com/Dp1U6ru.png)
 
 ### J) given a team name, show home matches' result
 ![]()
