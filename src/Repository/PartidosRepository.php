@@ -26,8 +26,8 @@ WHERE equipo_local LIKE 'Raptors';*/
     }
     // K: we just work in PartidosController
 
-    // L: we just work in PartidosController
-    public function findAverageHomePointReceivedOfATeam(Partidos $homeTeamName){
+    // L
+    public function findAverageHomePointReceivedOfATeam(Equipos $homeTeamName){
         $dql = "SELECT sum(p.puntosVisitante)/count(p.puntosVisitante) 
                 FROM App:Partidos p
                 WHERE p.equipoLocal = :homeTeamName";
@@ -37,12 +37,7 @@ WHERE equipo_local LIKE 'Raptors';*/
         return $query->getArrayResult();
     }
 
-    //Query SQL that works
-    /*
-     SELECT sum(puntos_local)/count(puntos_local) AS puntos FROM partidos
-WHERE lower(equipo_local) LIKE 'raptors';
-     */
 
-    // M: we just work in PartidosController
+    // M
 
 }

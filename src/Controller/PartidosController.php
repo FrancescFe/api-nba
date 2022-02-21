@@ -83,13 +83,8 @@ class PartidosController extends AbstractController
             ->findOneBy(["nombre" => $inputTeam]);
         $matches = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
             ->findAverageHomePointReceivedOfATeam($teams);
-        $arrayMatches = [];
 
-        foreach ($matches as $matchStats){
-            $arrayMatches[$teams->getNombre()][$matchStats->getPuntosLocal()]=$matchStats->getPuntosLocal();
-        }
-
-        return new JsonResponse($arrayMatches);
+        return new JsonResponse($matches);
     }
 
     // M
