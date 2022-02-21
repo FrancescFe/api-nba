@@ -11,6 +11,7 @@ class PartidosController extends AbstractController
 {
     // J
     public function homeResultsOfATeam(Request $request){
+        //Try 1
         /*$inputTeam = $request->get('homeTeamName');
         $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)
             ->findOneBy(["nombre" => $inputTeam]);
@@ -32,18 +33,47 @@ class PartidosController extends AbstractController
 
         return new JsonResponse($arrayMatches);*/
 
-        $inputTeam = $request->get('homeTeamName');
+        //try 2
+        /*$inputTeam = $request->get('homeTeamName');
         $teams = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
             ->findHomeResultsOfATeam($inputTeam);
 
-        return new JsonResponse($teams);
+        return new JsonResponse($teams);*/
 
+        $inputName = $request->get('homeTeamName');
+        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)
+            ->findOneBy(['nombre' => $inputName]);
+        $matches = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
+            ->findBy(['equipoLocal' => $inputName]);
+
+        $homeMatches = [];
+
+        foreach ($matches as $match){
+            $homeMatches[$teams->getNombre()][] = $match->getEquipoLocal()->getNombre() .
+                " " . $match->getPuntosLocal() . " " . $match->getEquipoVisitante()->
+                    getNombre() . " " . $match->getPuntosVisitante();
+        }
+
+        return new JsonResponse($homeMatches);
     }
 
     // K
     public function awayResultsOfATeam(Request $request){
+        $inputName = $request->get('awayTeamName');
+        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)
+            ->findOneBy(['nombre' => $inputName]);
+        $matches = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
+            ->findBy(['equipoVisitante' => $inputName]);
 
+        $awayMatches = [];
 
+        foreach ($matches as $match){
+            $awayMatches[$teams->getNombre()][] = $match->getEquipoLocal()->getNombre() .
+                " " . $match->getPuntosLocal() . " " . $match->getEquipoVisitante()->
+                getNombre() . " " . $match->getPuntosVisitante();
+        }
+
+        return new JsonResponse($awayMatches);
     }
 
     // L
@@ -52,7 +82,7 @@ class PartidosController extends AbstractController
         $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)
             ->findOneBy(["nombre" => $inputTeam]);
         $matches = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
-            ->findBy(["equipoLocal" => $teams]);
+            ->findAverageHomePointReceivedOfATeam($teams);
         $arrayMatches = [];
 
         foreach ($matches as $matchStats){

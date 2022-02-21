@@ -180,10 +180,10 @@ At last, we are going to solve some practical cases of custom queries.
 ![](https://i.imgur.com/Dp1U6ru.png)
 
 ### J) given a team name, show home matches' result
-![]()
+![](https://i.imgur.com/uL9pEs0.png)
 
 ### K) given a team name, show away matches' result
-![]()
+![](https://i.imgur.com/lp2vGt1.png)
 
 ### L) given a team name, show average points received as home
 ![]()

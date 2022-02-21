@@ -55,15 +55,15 @@ home_results_of_a_team:
 
 # k
 away_results_of_a_team:
-  path: /partidos/resultados/visitante/{teamName}
+  path: /partidos/resultados/visitante/{awayTeamName}
   controller: App\Controller\PartidosController::awayResultsOfATeam
 
 # l
 average_points_recived_home_of_a_team:
-  path: /partidos/resultados/media/local/{teamName}
+  path: /partidos/resultados/media/local/{homeTeamName}
   controller: App\Controller\PartidosController::averageHomePointReceivedOfATeam
 
 # m
 average_points_recived_away_of_a_team:
-  path: /partidos/resultados/media/visitante/{teamName}
+  path: /partidos/resultados/media/visitante/{awayTeamName}
   controller: App\Controller\PartidosController::averageAwayPointReceivedOfATeam
