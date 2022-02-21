@@ -146,7 +146,7 @@ namespace App\Repository;
 ```
 namespace App\Controller;
 ```
-25) 🏆🥇Now we can create the queries we need 🥇🏆
+25) 🏆🥇Now we can create the queries we need 🥇🏆 If symfony's own commands (findBy, findOneBy, findAll...) are not enough to access the data we want, we need to implement custom queries. These queries will be implemented in the Repository classes and we will call them in the Controller classes, from where we will treat the data, objects and variables. 
 
 ## ✏️ Practical Cases ✏️
 At last, we are going to solve some practical cases of custom queries.
