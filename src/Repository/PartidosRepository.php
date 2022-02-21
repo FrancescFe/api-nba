@@ -39,5 +39,14 @@ WHERE equipo_local LIKE 'Raptors';*/
 
 
     // M
+    public function findAverageAwayPointReceivedOfATeam(Equipos $awayTeamName){
+        $dql = "SELECT sum(p.puntosLocal)/count(p.puntosLocal) 
+                FROM App:Partidos p
+                WHERE p.equipoVisitante = :awayTeamName";
+        $query = $this->getEntityManager()->createQuery($dql);
+        $query->setParameter('awayTeamName', $awayTeamName);
+
+        return $query->getArrayResult();
+    }
 
 }

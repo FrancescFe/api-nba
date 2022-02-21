@@ -189,6 +189,6 @@ At last, we are going to solve some practical cases of custom queries.
 ![](https://i.imgur.com/SOPCZ8p.png)
 
 ### M) given a team name, show average points received as away
-![]()
+![](https://i.imgur.com/majMpOf.png)
 
 🎉🏆 That's all folks! 🏆🎉

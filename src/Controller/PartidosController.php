@@ -89,7 +89,13 @@ class PartidosController extends AbstractController
 
     // M
     public function averageAwayPointReceivedOfATeam(Request $request){
+        $inputTeam = $request->get('awayTeamName');
+        $teams = $this->getDoctrine()->getManager()->getRepository(Equipos::class)
+            ->findOneBy(["nombre" => $inputTeam]);
+        $matches = $this->getDoctrine()->getManager()->getRepository(Partidos::class)
+            ->findAverageAwayPointReceivedOfATeam($teams);
 
+        return new JsonResponse($matches);
 
     }
 
