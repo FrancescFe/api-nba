@@ -10,14 +10,14 @@ We will configure DB to operate with MVC (although instead of a View, an api-res
 
 To begin with, we will use docker to build our DB (mysql) & api that post our endpoints.
 
-1) from a console go to ```\add-env\mysql-rds\```
+1) from a console go to ```\add-env\mysql-rds\```. We want it in detached mode.
 ```
 docker-compose up --build
 docker network create edu-shared
 docker-compose up -d
 ```
 
-2) go to ```\api-nba\```
+2) go to ```\api-nba\```. We want it in detached mode.
 ```
 docker-compose up -d
 ```
