@@ -8,9 +8,9 @@ We will configure DB to operate with MVC (although instead of a View, an api-res
 
 ## 🐳 Building our work environment 🐳
 
-To begin with, we have to use docker to build our mysql connection & api.
+To begin with, we will use docker to build our DB (mysql) & api that post our endpoints.
 
-1) in powershell (or whatever console) go to ```\add-env\mysql-rds\```
+1) from a console go to ```\add-env\mysql-rds\```
 ```
 docker-compose up --build
 docker network create edu-shared
@@ -75,7 +75,7 @@ CREATE SCHEMA IF NOT EXISTS nba;
 USE nba;
 ```
 
-11) go back to powershell
+11) go back to console
 ```
 mysql -u root -pdbrootpass -h add-dbms < files/nba_2022-02-02.sql
 mysql -u root -pdbrootpass -h add-dbms
@@ -84,12 +84,13 @@ use nba;
 show tables;
 ```
 
-12) go to MySQL workbench and create new DB config (this is just to see info of tables)
+12) go to MySQL workbench and create new DB config (this step is not mandatory, it is just to see info of tables)
 ```
-ip 127.0.0.1  port 33006
+ip 127.0.0.1  
+port 33006
 ```
 
-13) write the scripts to transfer csv info to our mysql DB (I used 🐍 pycharm 🐍)
+13) write the scripts to transfer csv info to our mysql DB (I used 🐍 python🐍 with IDE pycharm )
 > 🔎 You can check my code in folder: ```\files\scripts\```
 
 14) go to docker again 
@@ -119,7 +120,7 @@ Our Doctrine image only contains basic functions, so we are going to custom our 
 
 19) install berbelei/DoctrineExtensions ```https://github.com/beberlei/DoctrineExtensions```
 
-20) install in our container
+20) install in our Bundle
 ```
 composer require berbelei/doctrineextensions
 ```
@@ -134,8 +135,9 @@ dql:
 ```
 
 ## 💻 Accessing Data 💻
-Finally, we are ready to access data and show it at an endpoint with Json format using Symfony.
-22) inside src\Repository create one php class ```yourEntityNameRepository.php``` by each entity class. At line 3 write (if IDE don't auto write it) 
+Finally, we are ready to implement queries that we need to execute to show them at our endpoints.
+
+22) inside src\Repository create one php class ```yourEntityNameRepository.php``` by each entity class. If IDE don't autocomplete it, we must write this at line 3: 
 ```
 namespace App\Repository;
 ```
