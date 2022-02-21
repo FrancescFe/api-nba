@@ -2,7 +2,7 @@
 This README is the documentation of an API of nba stats.
 Original DB is stored in csv files.
 We will use a Docker container with doctrine to convert data to ORM.
-We will configure DB to operate with MVC (although instead of a View, we will use Symfony as endpoint with Json format).
+We will configure DB to operate with MVC (although instead of a View, an api-rest with framework Symfony has been implemented to query the DB with the stored information and show it in Json format).
 
 # 🏀 API-NBA SETTING 🏀
 
