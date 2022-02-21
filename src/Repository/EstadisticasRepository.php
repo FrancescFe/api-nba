@@ -8,14 +8,6 @@ class EstadisticasRepository extends EntityRepository
 {
     // H
     public function findStatsOfAPlayer(Jugadores $playerName){
-        // Option 1 (discarded)
-        /*$dql = "SELECT e FROM App:Estadisticas e WHERE e.jugador = :playerName";
-        $query = $this->getEntityManager()->createQuery($dql);
-        $query->setParameter('playerName', $playerName);
-
-        return $query->getArrayResult();*/
-
-        // Option 2
         $dql = "SELECT e.puntosPorPartido,
                 e.asistenciasPorPartido,
                 e.taponesPorPartido,

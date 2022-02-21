@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityRepository;
 
 class JugadoresRepository extends EntityRepository
 {
-    // C: we just work in JugadoresController
+    // C: we use JugadoresController
 
     // D
     public function findPlayersByTeamName(Equipos $teamName){
@@ -34,6 +34,6 @@ class JugadoresRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
-    // G: we just work in JugadoresController
+    // G: we use JugadoresController
 
 }

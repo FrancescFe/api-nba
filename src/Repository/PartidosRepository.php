@@ -7,24 +7,9 @@ use Doctrine\ORM\EntityRepository;
 
 class PartidosRepository extends EntityRepository
 {
-    // J: discarded
-    public function findHomeResultsOfATeam(Partidos $homeTeamName){
-        $dql = "SELECT p.temporada, p.equipoVisitante, 
-                p.puntosLocal, p.puntosVisitante 
-                FROM App:Partidos p
-                WHERE p.equipoLocal = :homeTeamName";
-        $query = $this->getEntityManager()->createQuery($dql);
-        $query->setParameter('homeTeamName', $homeTeamName);
+    // J: we use PartidosController
 
-        //Query SQL that works
-        /*SELECT p.temporada, p.puntos_local, p.puntos_visitante
-FROM partidos AS p
-WHERE equipo_local LIKE 'Raptors';*/
-
-
-        return $query->getArrayResult();
-    }
-    // K: we just work in PartidosController
+    // K: we use PartidosController
 
     // L
     public function findAverageHomePointReceivedOfATeam(Equipos $homeTeamName){
@@ -40,7 +25,7 @@ WHERE equipo_local LIKE 'Raptors';*/
 
     // M
     public function findAverageAwayPointReceivedOfATeam(Equipos $awayTeamName){
-        $dql = "SELECT sum(p.puntosLocal)/count(p.puntosLocal) 
+        $dql = "SELECT avg(p.puntosLocal) 
                 FROM App:Partidos p
                 WHERE p.equipoVisitante = :awayTeamName";
         $query = $this->getEntityManager()->createQuery($dql);
